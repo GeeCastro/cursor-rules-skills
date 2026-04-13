@@ -1,0 +1,19 @@
+---
+description: Enforce the use of uv instead of standard pip or python commands
+globs: *.py, pyproject.toml, requirements*.txt, .python-version
+---
+
+# Python Tooling Rule: Always Use `uv`
+
+When working with Python code, suggesting terminal commands, managing dependencies, or executing scripts, you must use `uv` instead of raw `python`, `pip`, or `venv`.
+
+## Command Mappings
+
+Always substitute standard Python commands with their `uv` equivalents:
+
+* **Running scripts:** Use `uv run script.py` instead of `python script.py`.
+* **Installing packages (ad-hoc):** Use `uv pip install <package>` instead of `pip install <package>`.
+* **Adding project dependencies:** Use `uv add <package>` if modifying a `pyproject.toml`.
+* **Creating virtual environments:** Use `uv venv` instead of `python -m venv venv`.
+* **Running standalone tools:** Use `uvx <tool>` (e.g., `uvx ruff`, `uvx pytest`) instead of global pip installs.
+* **Syncing environments:** Use `uv sync` to install from a `pyproject.toml
